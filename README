@@ -1,0 +1,66 @@
+# Sugar Model Viewer Tag Template for Google Tag Manager
+This repository contains a custom Google Tag Manager (GTM) tag template designed to inject our fork of Google’s model-viewer into a webpage. The script is dynamically acquired from our API, which delivers the required script URL and a custom XML element for rendering the *sugar-model-viewer* component. The project is aimed to become 
+
+## Features
+**Custom Element:** Injects the my-model-viewer element (a fork of Google's model-viewer) into any webpage.
+
+**Dynamic Script Loading:** Acquires the script dynamically from our CDN via an API call, ensuring that the latest version is always served.
+
+**Google Tag Manager Integration:** Easily integrates with Google Tag Manager to provide seamless 3D model rendering on any page without manual code insertion.
+Installation
+
+**Download the Tag Template:** Clone this repository or download the template file directly.
+```
+git clone https://github.com/yumamur/Sugar-Model-Viewer-Tag/
+```
+
+## Upload to Google Tag Manager:
+
+In your Google Tag Manager account, navigate to Templates.
+Click on New under the "Tag Templates" section.
+Import the .tpl file into GTM by selecting Import.
+Currently, both the template and sugar-model-viewer is in the development phase and is not available in the GTM Community Template Gallery. To use it, you must import the template manually. But we are working on making it available in the gallery soon.
+
+
+### Deploy the Tag:
+
+Set up triggers based on your needs (e.g., page views, custom events).
+Publish the changes in Google Tag Manager.
+Usage
+Once the tag is published on your website, the my-model-viewer element will be injected into the desired locations where the tag is triggered. This element can be configured using the same attributes as Google’s model-viewer, but it includes our custom modifications.
+
+Here is an example of how the injected element might look:
+
+```
+<sugar-model-viewer id='modelViewer' product_id='test' company_id='1' ar-scale='fixed' quick-look-browsers='safari chrome' shadow-intensity='1.5' scrollable='pan-y' feature-on='hidden' ar qr camera-controls='true' show-model-group='true' showdimension='true' class='d-none'></sugar-model-viewer>
+```
+Attributes like src, auto-rotate, and camera-controls are supported. Please refer to the documentation for your forked version of model-viewer for more details on the supported features and attributes.
+
+## API Integration
+The tag template makes a call to our API endpoint, which returns the necessary script URL and XML syntax for injecting the custom element.*
+
+#### API Response Format
+The API will return a JSON object with the following format:
+
+```
+{
+    "content": "<sugar-model-viewer id='modelViewer' product_id='test' company_id='1' ar-scale='fixed' quick-look-browsers='safari chrome' shadow-intensity='1.5' scrollable='pan-y' feature-on='hidden' ar qr camera-controls='true' show-model-group='true' showdimension='true' class='d-none'></sugar-model-viewer>",
+    "script": "https://s3.eu-central-1.amazonaws.com/cdn.sugartech/mottobucket/CDN/sugar-viewer/sugar-model-viewer.js"
+}
+```
+
+>**script:** The URL of the script that initializes the sugar-model-viewer element.
+
+>**content:** The XML string representing the custom element that will be injected into the page.
+
+## Development
+You can modify the template to fit your needs. But as it may require development on our side, it is suggested to contact us. We would be glad to help. To modify the template, simply edit the *template.tpl* file. You can then re-import it into Google Tag Manager by following the steps outlined above. 
+
+## Contributing
+If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
+
+## License
+This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
+
+## Notes
+*This will be updated to acquire the API from user.
