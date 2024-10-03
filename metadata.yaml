@@ -1,5 +1,5 @@
 homepage: "https://sugartech.io/"
 documentation: "https://cdn.sugartech.io/ui/documents/sugar-model-viewer"
 versions:
-  - sha: be5749b6a242c68fc19f835ede86218a5ff0e966
+  - sha: b58fc989c56ae03757abe5cf7d295b4178b9c2ec
     changeNotes: Initial release
